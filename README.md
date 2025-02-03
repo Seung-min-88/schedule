@@ -23,3 +23,15 @@
     * Lv4 - 페이지네이션
     * Lv5 - 예외 발생 처리
     * Lv6 - null체크 및 특정 패턴에 대한 검증
+
+## ERD
+https://www.erdcloud.com/d/8ANCs2ZZd4pJS4ejP
+## API
+
+|기능|URL|request|response|상태코드|
+|---|---|---|---|-----|
+|일정 등록|POST|/schedules|등록 정보|201|
+|전제 일정 조회|GET|/schedules|전제 일정 정보|200|
+|선택 일정 조회|GET|/schedules/{id}|선택 일정 정보|200|
+|일정 수정|PUT|schedules/{id}|선택 일정 수정|200|
+|일정 삭제|DELETE|schedules/{id}|선택 일정 삭제|200|
