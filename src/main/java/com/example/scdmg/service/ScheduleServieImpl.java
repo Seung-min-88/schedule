@@ -6,6 +6,7 @@ import com.example.scdmg.dto.ScheduleResponseDto;
 import com.example.scdmg.entity.Schedule;
 import com.example.scdmg.repository.ScheduleRepository;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
@@ -48,16 +49,21 @@ public class ScheduleServieImpl implements ScheduleService{
         return new ScheduleResponseDto(optionalSchedule.get());
     }
 
+
     @Transactional
     @Override
-    public ScheduleResponseDto updateSchedule(Long id, String name, String todo, LocalDateTime updateTime) {
+    public ScheduleResponseDto updateSchedule(Long id, String name, String todo, LocalDateTime updateTime, String password) {
+
+        // 비밀번호 확인 로직 추가
+        if (!checkPassword(id, password)) {
+            throw  new ResponseStatusException(HttpStatus.FORBIDDEN, "Wrong password"); // 비밀번호가 일치하지 않으면 403 반환
+        }
 
         if (name == null || todo == null){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "The title and content are required values.");
         }
 
         int updateRow = scheduleRepository.updateSchedule(id,name,todo);
-
         if (updateRow == 0){
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No data has been modified.");
         }

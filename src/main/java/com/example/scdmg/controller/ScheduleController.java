@@ -41,13 +41,13 @@ public class ScheduleController {
             @PathVariable Long id,
             @RequestBody ScheduleRequestDto dto
     ){
-        // 비밀번호 확인 로직 추가
-        if (!scheduleService.checkPassword(id, dto.getPassword())) {
-            return new ResponseEntity<>(HttpStatus.FORBIDDEN); // 비밀번호가 일치하지 않으면 403 반환
-        }
+//        // 비밀번호 확인 로직 추가
+//        if (!scheduleService.checkPassword(id, dto.getPassword())) {
+//            return new ResponseEntity<>(HttpStatus.FORBIDDEN); // 비밀번호가 일치하지 않으면 403 반환
+//        }
 
         // 비밀번호가 일치하면 수정
-        ScheduleResponseDto updatedSchedule = scheduleService.updateSchedule(id, dto.getName(), dto.getTodo(), dto.getUpdateTime());
+        ScheduleResponseDto updatedSchedule = scheduleService.updateSchedule(id, dto.getName(), dto.getTodo(), dto.getUpdateTime(), dto.getPassword());
         return new ResponseEntity<>(updatedSchedule, HttpStatus.OK);
     }
 
