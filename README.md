@@ -24,11 +24,11 @@
     * Lv5 - 예외 발생 처리
     * Lv6 - null체크 및 특정 패턴에 대한 검증
 
-## ERD
+### ERD
 ![스크린샷 2025-02-03 시간: 16 17 58](https://github.com/user-attachments/assets/02a5b21e-5fd3-4ea1-b068-93cb179b27f6)
 
 https://www.erdcloud.com/d/8ANCs2ZZd4pJS4ejP
-## API
+### API
 
 |기능|URL|request|response|상태코드|
 |---|---|---|---|-----|
