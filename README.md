@@ -28,8 +28,8 @@
 ![스크린샷 2025-02-03 시간: 16 17 58](https://github.com/user-attachments/assets/02a5b21e-5fd3-4ea1-b068-93cb179b27f6)
 
 https://www.erdcloud.com/d/8ANCs2ZZd4pJS4ejP
-### API
 
+### API
 |기능|URL|request|response|상태코드|
 |---|---|---|---|-----|
 |일정 등록|POST|/schedules|등록 정보|201|
@@ -37,3 +37,6 @@ https://www.erdcloud.com/d/8ANCs2ZZd4pJS4ejP
 |선택 일정 조회|GET|/schedules/{id}|선택 일정 정보|200|
 |일정 수정|PUT|/schedules/{id}|선택 일정 수정|200|
 |일정 삭제|DELETE|/schedules/{id}|선택 일정 삭제|200|
+
+### SQL
+![스크린샷 2025-02-03 시간: 15 18 21](https://github.com/user-attachments/assets/4875d760-0dc7-443d-bbe5-69e66f93f0fe)
