@@ -66,7 +66,7 @@ public class JdbcTemplateScheduleRepository implements ScheduleRepository{
     }
 
     @Override
-    public void deleteSchedule(Long id) {
+    public void deleteSchedule(Long id, String password) {
         int deletedRows = jdbcTemplate.update("DELETE FROM scdTable WHERE id = ?", id);
         if (deletedRows == 0) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Does not exist id = " + id);

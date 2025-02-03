@@ -6,7 +6,6 @@ import com.example.scdmg.dto.ScheduleResponseDto;
 import com.example.scdmg.entity.Schedule;
 import com.example.scdmg.repository.ScheduleRepository;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
@@ -16,11 +15,11 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class ScheduleServieImpl implements ScheduleService{
+public class ScheduleServiceImpl implements ScheduleService{
     private final ScheduleRepository scheduleRepository;
 
 
-    public ScheduleServieImpl(ScheduleRepository scheduleRepository) {
+    public ScheduleServiceImpl(ScheduleRepository scheduleRepository) {
         this.scheduleRepository = scheduleRepository;
     }
 
@@ -72,12 +71,19 @@ public class ScheduleServieImpl implements ScheduleService{
     }
 
     @Override
-    public void deleteSchedule(Long id) {
-        Optional<Schedule> optionalSchedule = scheduleRepository.findById(id);
-        if (!optionalSchedule.isPresent()) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Does not exist id = " + id);
+    public void deleteSchedule(Long id, String password) {
+//        Optional<Schedule> optionalSchedule = scheduleRepository.findById(id);
+        Schedule schedule = scheduleRepository.findByIdOrElseThrow(id);
+
+        if (!checkPassword(id, password)) {
+            throw  new ResponseStatusException(HttpStatus.FORBIDDEN, "Wrong password"); // 비밀번호가 일치하지 않으면 403 반환
         }
-        scheduleRepository.deleteSchedule(id);
+
+
+//        if (!optionalSchedule.isPresent()) {
+//            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Does not exist id = " + id);
+//        }
+        scheduleRepository.deleteSchedule(id, password);
     }
 
     @Override
