@@ -40,3 +40,10 @@ https://www.erdcloud.com/d/8ANCs2ZZd4pJS4ejP
 
 ### SQL
 ![스크린샷 2025-02-03 시간: 15 18 21](https://github.com/user-attachments/assets/4875d760-0dc7-443d-bbe5-69e66f93f0fe)
+
+### 트러블 슈팅
+https://cork-7.tistory.com/51
+
+## 과제를 진행하며 느낀점
+이번 과제도 어영부영 끝낸 느낌이다.
+이론 강의에서 뒤죽박죽 정리하고 이해가 안된상태로 진행을 하니 코드가 이상해지고 스트레스로 쉬는 시간이 더 많이 생긴 과제였다고 생각한다.
